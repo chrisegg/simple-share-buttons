@@ -1,0 +1,135 @@
+/**
+ * Simple Share Buttons - Stylesheet
+ * Circular pink buttons with white icons
+ * High specificity to override theme styles
+ */
+
+ .simple-share-wrapper.share-menu-container {
+    position: relative;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.simple-share-wrapper .share-menu {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.simple-share-wrapper .share-icon {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background: #f09 !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    padding: 0 !important;
+    border: none !important;
+    font-size: 1.5em;
+    line-height: 1.6;
+    box-sizing: border-box;
+}
+
+.simple-share-wrapper .share-icon:hover {
+    color: #fff !important;
+    background: #f09 !important;
+    opacity: 0.8;
+}
+
+.simple-share-wrapper .share-icon:focus {
+    color: #fff !important;
+    background: #f09 !important;
+    outline-offset: 2px;
+}
+
+.simple-share-wrapper .share-icon svg {
+    width: 1em !important;
+    height: 1em !important;
+    fill: #fff !important;
+    color: #fff !important;
+}
+
+.simple-share-wrapper .share-icon:hover svg {
+    fill: #fff !important;
+    color: #fff !important;
+}
+
+.simple-share-wrapper .share-icon:focus svg {
+    fill: #fff !important;
+    color: #fff !important;
+}
+
+/* Override any theme styles on gb-shape if it exists */
+.simple-share-wrapper .share-icon .gb-shape,
+.simple-share-wrapper .gb-shape {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff !important;
+}
+
+.simple-share-wrapper .share-icon .gb-shape svg,
+.simple-share-wrapper .gb-shape svg {
+    width: 1em !important;
+    height: 1em !important;
+    fill: #fff !important;
+    color: #fff !important;
+}
+
+/* Hidden icons (for expansion) */
+.simple-share-wrapper .share-icon-hidden {
+    display: none !important;
+}
+
+.simple-share-wrapper.expanded .share-icon-hidden {
+    display: inline-flex !important;
+}
+
+/* Expand toggle button */
+.simple-share-wrapper .expand-toggle {
+    margin-left: 0;
+    margin-bottom: 0 !important;
+}
+
+/* Override conflicting button styles from other plugins */
+.simple-share-wrapper button,
+.simple-share-wrapper .button {
+    margin-bottom: 0 !important;
+}
+
+.simple-share-wrapper .expand-toggle svg {
+    width: 1em !important;
+    height: 1em !important;
+    fill: #fff !important;
+    color: #fff !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .simple-share-wrapper .share-icon {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .simple-share-wrapper .share-icon {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 1.2em;
+    }
+}
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .simple-share-wrapper .share-icon {
+        transition: none;
+    }
+}
