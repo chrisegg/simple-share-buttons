@@ -10,6 +10,36 @@ if (!defined('ABSPATH')) {
 }
 
 /**
+ * Allowed SVG tags and attributes for wp_kses().
+ * Attribute names must be lowercase (WordPress normalizes them).
+ *
+ * @return array Allowed tags and attributes for SVG icons
+ */
+function simple_share_allowed_svg_tags() {
+    return array(
+        'svg'   => array(
+            'aria-hidden' => true,
+            'role'       => true,
+            'height'     => true,
+            'width'      => true,
+            'viewbox'    => true,
+            'xmlns'      => true,
+            'fill'       => true,
+        ),
+        'path'  => array(
+            'fill' => true,
+            'd'    => true,
+        ),
+        'circle' => array(
+            'cx'   => true,
+            'cy'   => true,
+            'r'    => true,
+            'fill' => true,
+        ),
+    );
+}
+
+/**
  * Get share links for all supported networks
  *
  * @param string $url   The URL to share

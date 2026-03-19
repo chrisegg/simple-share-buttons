@@ -22,7 +22,7 @@ if (!defined('ABSPATH')) {
                    class="share-icon share-icon-<?php echo esc_attr($network); ?>"
                    title="<?php echo esc_attr(sprintf(__('Share on %s', 'simple-share-buttons'), simple_share_get_network_name($network))); ?>"
                    aria-label="<?php echo esc_attr(sprintf(__('Share on %s', 'simple-share-buttons'), simple_share_get_network_name($network))); ?>">
-                    <?php echo simple_share_get_icon($network); ?>
+                    <?php echo wp_kses(simple_share_get_icon($network), simple_share_allowed_svg_tags()); ?>
                 </a>
             <?php endif; ?>
         <?php endforeach; ?>
@@ -36,8 +36,8 @@ if (!defined('ABSPATH')) {
                        class="share-icon share-icon-<?php echo esc_attr($network); ?> share-icon-hidden"
                        title="<?php echo esc_attr(sprintf(__('Share on %s', 'simple-share-buttons'), simple_share_get_network_name($network))); ?>"
                        aria-label="<?php echo esc_attr(sprintf(__('Share on %s', 'simple-share-buttons'), simple_share_get_network_name($network))); ?>">
-                        <?php echo simple_share_get_icon($network); ?>
-                    </a>
+                    <?php echo wp_kses(simple_share_get_icon($network), simple_share_allowed_svg_tags()); ?>
+                </a>
                 <?php endif; ?>
             <?php endforeach; ?>
 

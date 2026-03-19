@@ -66,14 +66,6 @@ Use a hex color (e.g. `#2563eb`, `#059669`, `#7c3aed`) to match your theme. Inva
 [simple_share networks="facebook,twitter,linkedin,reddit,email" collapsed="2"]
 ```
 
-### Size Options
-
-```
-[simple_share size="small"]
-[simple_share size="medium"]
-[simple_share size="large"]
-```
-
 ## Parameters
 
 | Parameter | Default | Description |
@@ -81,7 +73,6 @@ Use a hex color (e.g. `#2563eb`, `#059669`, `#7c3aed`) to match your theme. Inva
 | `networks` | `facebook,twitter,pinterest,tumblr,email` | Comma-separated list of networks |
 | `collapsed` | `0` | Number of icons to show before expanding (`0` = show all) |
 | `button_color` | `#2563eb` | Hex color for the button background (e.g. `#059669`, `#7c3aed`) |
-| `size` | `medium` | Icon size: `small`, `medium`, or `large` |
 
 ## Examples
 
@@ -128,7 +119,7 @@ The plugin includes default styling that matches modern design standards. Icons 
 ## Performance
 
 - Assets only load when shortcode is present on the page
-- Uses Font Awesome CDN for icons (can be replaced with local icons)
+- Uses inline SVG icons (no external dependencies)
 - Minimal JavaScript footprint (~1KB)
 - CSS optimized for fast rendering
 
@@ -171,7 +162,7 @@ GPL v2 or later
 
 ## Support
 
-For issues, feature requests, or contributions, please visit the [GitHub repository](https://github.com/yourusername/simple-share-buttons).
+For issues, feature requests, or contributions, please visit the [GitHub repository](https://github.com/chrisegg/simple-share-buttons).
 
 ## Changelog
 

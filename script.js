@@ -45,14 +45,16 @@
         document.addEventListener('keydown', function(e) {
             if (e.key !== 'Escape') return;
 
-            const expanded = document.querySelector('.share-menu-container.expanded');
-            if (expanded) {
-                const toggle = expanded.querySelector('.expand-toggle');
-                expanded.classList.remove('expanded');
-                if (toggle) {
-                    toggle.setAttribute('aria-expanded', 'false');
-                    toggle.focus();
-                }
+            const expandedList = document.querySelectorAll('.share-menu-container.expanded');
+            if (expandedList.length > 0) {
+                const first = expandedList[0];
+                const toggle = first.querySelector('.expand-toggle');
+                expandedList.forEach(function(container) {
+                    container.classList.remove('expanded');
+                    const t = container.querySelector('.expand-toggle');
+                    if (t) t.setAttribute('aria-expanded', 'false');
+                });
+                if (toggle) toggle.focus();
             }
         });
     }
