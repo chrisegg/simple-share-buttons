@@ -148,6 +148,7 @@ function simple_share_render_buttons($atts) {
         'networks' => 'facebook,twitter,pinterest,tumblr,email',
         'collapsed' => 0, // 0 means show all by default
         'size' => 'medium',
+        'button_color' => '',
     ), $atts, 'simple_share');
 
     // Get current post/page URL and title
@@ -178,7 +179,12 @@ function simple_share_render_buttons($atts) {
 
     $collapsed_num = intval($atts['collapsed']);
     $size_class = sanitize_html_class($atts['size']);
-    
+
+    $color = !empty($atts['button_color']) ? sanitize_hex_color($atts['button_color']) : '';
+    if (empty($color)) {
+        $color = '#2563eb';
+    }
+
     // Only collapse if collapsed parameter is set and > 0
     $should_collapse = $collapsed_num > 0;
     
@@ -203,8 +209,8 @@ function simple_share_render_buttons($atts) {
         echo '<style>
         .simple-share-wrapper.share-menu-container{position:relative;display:inline-block;margin:10px 0}
         .simple-share-wrapper .share-menu{display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap}
-        .simple-share-wrapper .share-icon{display:inline-flex!important;align-items:center;justify-content:center;width:40px!important;height:40px!important;border-radius:50%!important;background:#f09!important;color:#fff!important;text-decoration:none!important;cursor:pointer;transition:opacity 0.2s;padding:0!important;border:none!important;font-size:1.5em;line-height:1.6;box-sizing:border-box}
-        .simple-share-wrapper .share-icon:hover{color:#fff!important;background:#f09!important;opacity:0.8}
+        .simple-share-wrapper .share-icon{display:inline-flex!important;align-items:center;justify-content:center;width:40px!important;height:40px!important;border-radius:50%!important;background:#2563eb!important;color:#fff!important;text-decoration:none!important;cursor:pointer;transition:opacity 0.2s;padding:0!important;border:none!important;font-size:1.5em;line-height:1.6;box-sizing:border-box}
+        .simple-share-wrapper .share-icon:hover{color:#fff!important;background:#2563eb!important;opacity:0.8}
         .simple-share-wrapper .share-icon svg{width:1em!important;height:1em!important;fill:#fff!important;color:#fff!important}
         .simple-share-wrapper .share-icon:hover svg{fill:#fff!important;color:#fff!important}
         .simple-share-wrapper .share-icon-hidden{display:none!important}
@@ -214,7 +220,7 @@ function simple_share_render_buttons($atts) {
     }
     ?>
 
-    <div class="share-menu-container simple-share-wrapper">
+    <div class="share-menu-container simple-share-wrapper" style="--simple-share-color: <?php echo esc_attr($color); ?>">
         <div class="share-menu">
             <?php foreach ($visible_networks as $network): ?>
                 <?php if (isset($links[$network])): ?>

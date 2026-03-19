@@ -52,6 +52,14 @@ Available networks:
 
 Shows first 3 icons, rest in dropdown.
 
+### Customize Button Color
+
+```
+[simple_share button_color="#059669"]
+```
+
+Use a hex color (e.g. `#2563eb`, `#059669`, `#7c3aed`) to match your theme. Invalid values fall back to the default blue.
+
 ### Combine Parameters
 
 ```
@@ -71,7 +79,8 @@ Shows first 3 icons, rest in dropdown.
 | Parameter | Default | Description |
 |-----------|---------|-------------|
 | `networks` | `facebook,twitter,pinterest,tumblr,email` | Comma-separated list of networks |
-| `collapsed` | `2` | Number of icons to show before expanding |
+| `collapsed` | `0` | Number of icons to show before expanding (`0` = show all) |
+| `button_color` | `#2563eb` | Hex color for the button background (e.g. `#059669`, `#7c3aed`) |
 | `size` | `medium` | Icon size: `small`, `medium`, or `large` |
 
 ## Examples

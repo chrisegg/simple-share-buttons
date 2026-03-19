@@ -1,10 +1,10 @@
 /**
  * Simple Share Buttons - Stylesheet
- * Circular pink buttons with white icons
+ * Circular buttons with white icons (color via --simple-share-color)
  * High specificity to override theme styles
  */
 
- .simple-share-wrapper.share-menu-container {
+.simple-share-wrapper.share-menu-container {
     position: relative;
     display: inline-block;
     margin: 10px 0;
@@ -24,7 +24,7 @@
     width: 40px !important;
     height: 40px !important;
     border-radius: 50% !important;
-    background: #f09 !important;
+    background: var(--simple-share-color, #2563eb) !important;
     color: #fff !important;
     text-decoration: none !important;
     cursor: pointer;
@@ -38,13 +38,13 @@
 
 .simple-share-wrapper .share-icon:hover {
     color: #fff !important;
-    background: #f09 !important;
+    background: var(--simple-share-color, #2563eb) !important;
     opacity: 0.8;
 }
 
 .simple-share-wrapper .share-icon:focus {
     color: #fff !important;
-    background: #f09 !important;
+    background: var(--simple-share-color, #2563eb) !important;
     outline-offset: 2px;
 }
 
