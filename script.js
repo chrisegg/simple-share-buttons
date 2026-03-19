@@ -1,57 +1,59 @@
 /**
  * Simple Share Buttons - JavaScript
- * Handles toggle functionality for inline expansion
+ * Handles toggle functionality via event delegation (single set of document listeners)
  */
 
 (function() {
     'use strict';
 
     /**
-     * Initialize share button functionality
+     * Setup event delegation for share button expand/collapse
      */
     function initShareButtons() {
-        const containers = document.querySelectorAll('.share-menu-container');
-
-        containers.forEach(function(container) {
-            const toggle = container.querySelector('.expand-toggle');
-            const hiddenIcons = container.querySelectorAll('.share-icon-hidden');
-
-            if (!toggle || hiddenIcons.length === 0) {
-                return; // Skip if toggle or hidden icons don't exist
+        // Single document click handler - handles toggle clicks and outside clicks
+        document.addEventListener('click', function(e) {
+            const toggle = e.target.closest('.expand-toggle');
+            if (toggle) {
+                const container = toggle.closest('.share-menu-container');
+                if (container && container.querySelectorAll('.share-icon-hidden').length > 0) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const isExpanded = container.classList.contains('expanded');
+                    if (isExpanded) {
+                        container.classList.remove('expanded');
+                        toggle.setAttribute('aria-expanded', 'false');
+                    } else {
+                        container.classList.add('expanded');
+                        toggle.setAttribute('aria-expanded', 'true');
+                    }
+                }
+                return;
             }
 
-            // Toggle expanded state on button click
-            toggle.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                const isExpanded = container.classList.contains('expanded');
-                
-                if (isExpanded) {
+            // Click outside any share container - close all expanded
+            const clickedInside = e.target.closest('.share-menu-container');
+            if (!clickedInside) {
+                document.querySelectorAll('.share-menu-container.expanded').forEach(function(container) {
                     container.classList.remove('expanded');
-                    toggle.setAttribute('aria-expanded', 'false');
-                } else {
-                    container.classList.add('expanded');
-                    toggle.setAttribute('aria-expanded', 'true');
-                }
-            });
+                    const t = container.querySelector('.expand-toggle');
+                    if (t) t.setAttribute('aria-expanded', 'false');
+                });
+            }
+        });
 
-            // Close when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!container.contains(e.target)) {
-                    container.classList.remove('expanded');
-                    toggle.setAttribute('aria-expanded', 'false');
-                }
-            });
+        // Single document keydown handler - Escape closes expanded
+        document.addEventListener('keydown', function(e) {
+            if (e.key !== 'Escape') return;
 
-            // Close on Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && container.classList.contains('expanded')) {
-                    container.classList.remove('expanded');
+            const expanded = document.querySelector('.share-menu-container.expanded');
+            if (expanded) {
+                const toggle = expanded.querySelector('.expand-toggle');
+                expanded.classList.remove('expanded');
+                if (toggle) {
                     toggle.setAttribute('aria-expanded', 'false');
                     toggle.focus();
                 }
-            });
+            }
         });
     }
 
@@ -59,8 +61,6 @@
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initShareButtons);
     } else {
-        // DOM is already ready
         initShareButtons();
     }
 })();
-

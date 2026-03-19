@@ -146,15 +146,19 @@ The plugin includes default styling that matches modern design standards. Icons 
 
 ```
 simple-share-buttons/
-├── simple-share-buttons.php  # Main plugin file
+├── simple-share-buttons.php   # Main plugin file
+├── includes/
+│   └── networks.php           # Share URLs, icons, display names
+├── templates/
+│   └── share-buttons.php     # Shortcode output markup
 ├── style.css                  # Stylesheet
-├── script.js                  # JavaScript
+├── script.js                  # JavaScript (event delegation)
 └── README.md                  # This file
 ```
 
 ### Adding Custom Networks
 
-Edit `simple-share-buttons.php`:
+Edit `includes/networks.php`:
 
 1. Add share URL to `simple_share_get_links()` function
 2. Add icon to `simple_share_get_icon()` function
