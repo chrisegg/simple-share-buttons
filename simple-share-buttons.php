@@ -209,8 +209,8 @@ function simple_share_render_buttons($atts) {
         echo '<style>
         .simple-share-wrapper.share-menu-container{position:relative;display:inline-block;margin:10px 0}
         .simple-share-wrapper .share-menu{display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap}
-        .simple-share-wrapper .share-icon{display:inline-flex!important;align-items:center;justify-content:center;width:40px!important;height:40px!important;border-radius:50%!important;background:#2563eb!important;color:#fff!important;text-decoration:none!important;cursor:pointer;transition:opacity 0.2s;padding:0!important;border:none!important;font-size:1.5em;line-height:1.6;box-sizing:border-box}
-        .simple-share-wrapper .share-icon:hover{color:#fff!important;background:#2563eb!important;opacity:0.8}
+        .simple-share-wrapper .share-icon{display:inline-flex!important;align-items:center;justify-content:center;width:40px!important;height:40px!important;border-radius:50%!important;background:var(--simple-share-color,#2563eb)!important;color:#fff!important;text-decoration:none!important;cursor:pointer;transition:opacity 0.2s;padding:0!important;border:none!important;font-size:1.5em;line-height:1.6;box-sizing:border-box}
+        .simple-share-wrapper .share-icon:hover{color:#fff!important;background:var(--simple-share-color,#2563eb)!important;opacity:0.8}
         .simple-share-wrapper .share-icon svg{width:1em!important;height:1em!important;fill:#fff!important;color:#fff!important}
         .simple-share-wrapper .share-icon:hover svg{fill:#fff!important;color:#fff!important}
         .simple-share-wrapper .share-icon-hidden{display:none!important}
