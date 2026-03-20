@@ -4,12 +4,12 @@ A lightweight, customizable social sharing buttons plugin for WordPress. Feature
 
 ## Features
 
-- 🎯 **Lightweight** - No third-party tracking scripts, pure vanilla JavaScript
-- 🎨 **Customizable** - Control which networks appear and how many are visible
-- 📱 **Responsive** - Works beautifully on desktop, tablet, and mobile
-- ♿ **Accessible** - ARIA labels, keyboard navigation, and focus management
-- 🚀 **Fast** - Assets only load when shortcode is used
-- 🎭 **Collapsible** - Shows first N icons by default, expands to show all on click
+-  **Lightweight** - No third-party tracking scripts, pure vanilla JavaScript
+-  **Customizable** - Control which networks appear and how many are visible
+-  **Responsive** - Works beautifully on desktop, tablet, and mobile
+-  **Accessible** - ARIA labels, keyboard navigation, and focus management
+-  **Fast** - Assets only load when shortcode is used
+-  **Collapsible** - Shows first N icons by default, expands to show all on click
 
 ## Installation
 
